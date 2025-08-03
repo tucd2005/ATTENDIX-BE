@@ -1,7 +1,8 @@
 import handleAsync from "../../common/utils/async-handler";
+import { createError } from "../../common/utils/create-error";
 import { createResponse } from "../../common/utils/create-response";
-import { MESSAGE } from "./auth.message";
-import { refreshTokenService, registerSevice } from "./auth.service";
+import MESSAGE from "./auth.message";
+import { forgotPasswordService, loginSevice, refreshTokenService, registerSevice } from "./auth.service";
 
 
 export const registerUser = handleAsync(async (req, res, next) => {
@@ -10,7 +11,7 @@ export const registerUser = handleAsync(async (req, res, next) => {
 });
 
 export const loginUser = handleAsync(async (req, res, next) => {
-    const data = await loginUser(req.body);
+    const data = await loginSevice(req.body);
     return createResponse(res, 200, MESSAGE.LOGIN_SUCCESS, data)
 });
 
@@ -19,4 +20,20 @@ export const refreshToken = handleAsync(async (req, res, next) => {
     const data = await refreshTokenService(refreshToken);
     return createResponse(res, 200, MESSAGE.REFRESH_TOKEN_SUCCES, data);
 });
+
+export const forgotPassword = handleAsync(async (res, res , next) => {
+    const isSendMail = await forgotPasswordService(req.body.email);
+    if(!isSendMail){
+        return createError(400, MESSAGE.SEND_MAIL_FAIL);
+    }
+    return createResponse(res,200, MESSAGE.SEND_SUCCESS)
+});
+
+export const resetPassword = handleAsync(async (req, res, next) => {
+    const isResetPassword = await resetPasswordService(req.body.resetToken, req.body.newPassword);
+
+    if(!isResetPassword) return res.status(400).json(createError(400, MESSAGE.PASSWORD_CHANGE_FAILED));
+
+    return createResponse(res, 200, MESSAGE.PASSWORD_RESET_SUCCESS)
+})
 

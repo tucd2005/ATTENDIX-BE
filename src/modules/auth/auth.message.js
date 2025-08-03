@@ -1,4 +1,4 @@
-export const MESSAGE =  {
+const MESSAGE =  {
     LOGIN_SUCCESS: "Đăng nhập thành công",
     LOGOUT_SUCCESS: "Đăng xuất thành công",
     REGISTER_SUCCESS: "Đăng ký thành công",
@@ -25,6 +25,12 @@ export const MESSAGE =  {
 
     INVALID_REFRESH_TOKEN: "Refresh token không hợp lệ",
 
-    REFRESH_TOKEN_SUCCES: "Làm mới Token thành công"
+    REFRESH_TOKEN_SUCCES: "Làm mới Token thành công",
+
+    SEND_SUCCESS: "Gửi email thành công, vui lòng kiểm tra hộp thư đến",
+	SEND_MAIL_FAIL: "Gửi email thất bại, vui lòng kiểm tra lại!",
 
 }
+
+Object.freeze(MESSAGE)
+export default MESSAGE

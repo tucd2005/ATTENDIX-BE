@@ -1,7 +1,9 @@
 import { FRONTEND_URL, RESET_PASSWORD_EXPIRES } from "../../common/configs/enviroment";
 import { generateStudentId, generateUsername } from "../../common/utils/code-generator";
 import { createError, throwError } from "../../common/utils/create-error";
+import { verifyToken } from "../../common/utils/jwt";
 import { comparePassword, hashPassword } from "../../common/utils/password-handler";
+import sendEmail from "../../common/utils/send-email";
 import User from "../user/user.model";
 import { MESSAGE } from "./auth.message";
 
@@ -75,6 +77,14 @@ export const forgotPasswordService = async (email) => {
 );
 	const resetLink = `${FRONTEND_URL}/auth/reset-password/${resetToken}`;
 	const subject = "[CodeFarm] Đặt lại mật khẩu cho tài khoản của bạn";
-	const html = generateResetPasswordEmail(resetLink, RESET_PASSWORD_EXPIRES || "15 phut")
+	const html = generateResetPasswordEmail(resetLink, RESET_PASSWORD_EXPIRES || "15 phut");
+	await sendEmail(email, subject, {html});
+	return true;
+};
+
+export  const resetPasswordService = async (resetToken, newPassword) => {
+	const decoded = verifyToken(resetToken);
+	const user = await User.findById(decoded.decoded.id);
+	if(!user) throwError(400, MESSAGE)
 }
 
