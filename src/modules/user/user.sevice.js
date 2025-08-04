@@ -1,8 +1,8 @@
-import { generateStudentId, generateUsername } from "../../common/utils/code-generator";
-import { createError } from "../../common/utils/create-error";
-import { randomPassword } from "../../common/utils/password-handler";
-import { MESSAGE } from "../auth/auth.message";
-import User from "./user.model"
+import { generateStudentId, generateUsername } from "../../common/utils/code-generator.js";
+import { createError } from "../../common/utils/create-error.js";
+import { randomPassword } from "../../common/utils/password-handler.js";
+import { MESSAGE } from "../auth/auth.message.js";
+import User from "./user.model.js"
 
 
 export const updateUserRole = async (userId, role) => {

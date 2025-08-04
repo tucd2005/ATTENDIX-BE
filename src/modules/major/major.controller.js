@@ -1,7 +1,7 @@
-import handleAsync from "../../common/utils/async-handler";
+import handleAsync from "../../common/utils/async-handler.js";
 import { createError } from "../../common/utils/create-error.js";
-import { createResponse } from "../../common/utils/create-response";
-import MESSAGES from "./major.message";
+import { createResponse } from "../../common/utils/create-response.js";
+import MESSAGES from "./major.message.js";
 import * as majorService from "./major.sevice.js"
 
 export const createMajor = handleAsync(async (req,res) => {

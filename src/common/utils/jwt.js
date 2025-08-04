@@ -1,4 +1,4 @@
-import { JWT_EXPIRES_IN, JWT_SECRET } from "../configs/enviroment";
+import { JWT_EXPIRES_IN, JWT_SECRET } from "../configs/enviroment.js";
 import jwt from "jsonwebtoken"
 export const signToken = (payload, expiresIn = JWT_EXPIRES_IN || '1d') => {
      return jwt.sign(payload, JWT_SECRET, {expiresIn}); 

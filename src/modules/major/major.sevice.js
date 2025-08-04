@@ -1,4 +1,4 @@
-import Major from "./major.model";
+import Major from "./major.model.js";
 
 export const createMajor = async (data) => {
     const major = await Major.create(data) ;

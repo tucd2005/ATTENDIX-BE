@@ -1,11 +1,11 @@
-import { FRONTEND_URL, RESET_PASSWORD_EXPIRES } from "../../common/configs/enviroment";
-import { generateStudentId, generateUsername } from "../../common/utils/code-generator";
-import { createError, throwError } from "../../common/utils/create-error";
-import { verifyToken } from "../../common/utils/jwt";
-import { comparePassword, hashPassword } from "../../common/utils/password-handler";
-import sendEmail from "../../common/utils/send-email";
-import User from "../user/user.model";
-import { MESSAGE } from "./auth.message";
+import { FRONTEND_URL, RESET_PASSWORD_EXPIRES } from "../../common/configs/enviroment.js";
+import { generateStudentId, generateUsername } from "../../common/utils/code-generator.js";
+import { createError, throwError } from "../../common/utils/create-error.js";
+import { verifyToken } from "../../common/utils/jwt.js";
+import { comparePassword, hashPassword } from "../../common/utils/password-handler.js";
+import sendEmail from "../../common/utils/send-email.js";
+import User from "../user/user.model.js";
+import MESSAGE from "./auth.message.js";
 
 
 export const registerSevice = async (dataRegister) => {

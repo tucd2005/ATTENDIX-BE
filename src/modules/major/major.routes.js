@@ -6,6 +6,6 @@ const majorRoutes = Router();
 majorRoutes.get("/", majorController.getAllMajors);
 majorRoutes.get("/:id", majorController.getMajorById);
 
-majorRoutes.use(verify)
+// majorRoutes.use(verify)
 
 export default majorRoutes;

@@ -1,8 +1,8 @@
-import handleAsync from "../../common/utils/async-handler";
-import { createError } from "../../common/utils/create-error";
-import { createResponse } from "../../common/utils/create-response";
-import MESSAGE from "./auth.message";
-import { forgotPasswordService, loginSevice, refreshTokenService, registerSevice } from "./auth.service";
+import handleAsync from "../../common/utils/async-handler.js";
+import { createError } from "../../common/utils/create-error.js";
+import { createResponse } from "../../common/utils/create-response.js";
+import MESSAGE from "./auth.message.js";
+import { forgotPasswordService, loginSevice, refreshTokenService, registerSevice } from "./auth.service.js";
 
 
 export const registerUser = handleAsync(async (req, res, next) => {
@@ -21,7 +21,7 @@ export const refreshToken = handleAsync(async (req, res, next) => {
     return createResponse(res, 200, MESSAGE.REFRESH_TOKEN_SUCCES, data);
 });
 
-export const forgotPassword = handleAsync(async (res, res , next) => {
+export const forgotPassword = handleAsync(async (req, res , next) => {
     const isSendMail = await forgotPasswordService(req.body.email);
     if(!isSendMail){
         return createError(400, MESSAGE.SEND_MAIL_FAIL);

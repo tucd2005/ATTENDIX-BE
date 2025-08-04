@@ -1,4 +1,4 @@
-import handleAsync from "../../common/utils/async-handler";
+import handleAsync from "../../common/utils/async-handler.js";
 
 
 export const updateRole = handleAsync(async(req, res) => {

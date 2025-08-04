@@ -1,7 +1,7 @@
 import Router from "express";
-import validBodyRequest from "../../common/middlewares/valid-body.middleware";
-import { loginSchema, registerSchema, resetPasswordSchema } from "./auth.schema";
-import { forgotPassword, loginUser, refreshToken, registerUser, resetPassword } from "./auth.controller";
+import validBodyRequest from "../../common/middlewares/valid-body.middleware.js";
+import { loginSchema, registerSchema, resetPasswordSchema } from "./auth.schema.js";
+import { forgotPassword, loginUser, refreshToken, registerUser, resetPassword } from "./auth.controller.js";
 
 const authRoutes = Router();
 

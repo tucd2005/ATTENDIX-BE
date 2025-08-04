@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
-import { EMAIL_PASSWORD, EMAIL_USERNAME } from "../configs/enviroment";
-import { createError } from "./create-error";
+import { EMAIL_PASSWORD, EMAIL_USERNAME } from "../configs/enviroment.js";
+import { createError } from "./create-error.js";
 
 const sendEmail = async (email, subject, options = {}) => {
     const {text, html} = options; 
