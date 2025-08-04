@@ -1,3 +1,4 @@
+import z from "zod";
 
 export const createMajorSchema = z.object({
     name: z.string().min(1, "Name is required"),

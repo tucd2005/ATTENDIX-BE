@@ -1,6 +1,6 @@
 import MESSAGES from "../../modules/auth/auth.message.js";
 import User from "../../modules/user/user.model.js";
-import { createError } from "../utils/create-error";
+import { createError } from "../utils/create-error.js";
 import { verifyToken } from "../utils/jwt.js";
 
 
